@@ -1,0 +1,70 @@
+You should understand enough about the framework to test it manually before implementing the automation framework.
+	- Understand general structure of the application
+	- Automation framework mimics structure of the application
+
+Smoke Tests
+	- Think about automated the smoke test
+
+Architecture
+	Tests use the Automation Framework
+	Automation Framework uses Selenium/AutoIt
+	Selenium/AutoIt interact with the browser & windows
+
+Page Pattern
+	Test uses a page class
+	Page class has methods which map to the functionality of the page
+	The trick is to create the methods at the right level of abstraction
+	The methods on the page class correspond to the actions a user can do on the page
+	The methods on the page class do not only correspond to interactions with UI elements
+
+Common Mistake
+	Problem: Model every UI element on the page
+	Better: The better way is to think about the functionality that a user would do
+	Better: Think about the actions the user takes and implement those
+	Better: Figure out all the actions the user would take and model those
+	
+Layers of the Framework
+	Workflows - functionality that spans multiple pages
+	Pages - define functionality for a single page
+	Navigation - navigation elements of your web applications
+		Consider making the navigation a separate class
+	UI Utilities - common UI constructs
+		common paradigms you see popping up over and over again
+		utilities that can be used in several pages/workflows to simplify things
+	Selenium - possibly use an interface to abstract away the details
+		of the automation tool
+
+Ease of Use
+	If it is not easy to use, it will not be used
+	The framework should be harder to write and easier to use
+	
+Basic Rules (NEVER)
+	NEVER require tests to declare variables
+	NEVER require tests to use the "new" keyword or create objects (Factory Pattern)
+	NEVER require the tests to manage state on their own
+	NEVER expose the browser or DOM to the tests or let them manipulate it directly
+	
+Basic Rules (ALWAYS)
+	ALWAYS reduce the number of parameters for API calls when possible
+	ALWAYS use default values instead of requiring parameters when possible
+		(optimize for the general case)
+		
+Basic Rules (PREFER)
+	PREFER to make the API easier to use over making the internals of the API less complex
+	PREFER using enums and constants over requiring the test to pass in primitive types
+
+Domain Specific Languages (DSLs)
+	Language that is specific to a particular domain
+
+Internal DSLs
+	Still use the programming language, but writing the code in a way specific to the domain
+	
+External DSLs
+	True DSL
+	Create a whole new language to write your tests in, but that is a lot of workflows
+	
+Think About Running The Tests
+	If the tests aren't easy to run, they won't be run
+	Ideally, make it so a developer can run the automated test suite before checking in code
+	
+

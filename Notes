@@ -67,4 +67,9 @@ Think About Running The Tests
 	If the tests aren't easy to run, they won't be run
 	Ideally, make it so a developer can run the automated test suite before checking in code
 	
+===============================================================
 
+Write the test first as if anything were possible within the framework to make it as readable as possible.
+	LoginPage.goTo();
+	LoginPage.loginAs("admin").withPassword("pa$$word").login(); // Fluent style
+	assertTrue(DashboardPage.isAt, "Failed to login");

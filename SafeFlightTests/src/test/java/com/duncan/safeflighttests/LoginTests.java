@@ -1,3 +1,4 @@
+package com.duncan.safeflighttests;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.concurrent.TimeUnit;
@@ -7,6 +8,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import com.duncan.safeflightautomationframework.FlightsPage;
+import com.duncan.safeflightautomationframework.LoginPage;
 
 class LoginTests {
 

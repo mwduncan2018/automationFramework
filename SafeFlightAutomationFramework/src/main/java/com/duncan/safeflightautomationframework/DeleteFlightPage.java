@@ -1,3 +1,4 @@
+package com.duncan.safeflightautomationframework;
 import org.openqa.selenium.By;
 
 public class DeleteFlightPage extends AbstractPage {

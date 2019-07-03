@@ -1,3 +1,4 @@
+package com.duncan.safeflighttests;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.AfterAll;
@@ -5,6 +6,13 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import com.duncan.safeflightautomationframework.CreateFlightPage;
+import com.duncan.safeflightautomationframework.CreateWatchListEntryPage;
+import com.duncan.safeflightautomationframework.Driver;
+import com.duncan.safeflightautomationframework.FlightsPage;
+import com.duncan.safeflightautomationframework.LoginPage;
+import com.duncan.safeflightautomationframework.WatchListPage;
 
 class FlightsTests {
 

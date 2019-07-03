@@ -1,3 +1,4 @@
+package com.duncan.safeflightautomationframework;
 
 public class CreateWatchListEntryPage extends AbstractPage {
 

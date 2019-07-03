@@ -22,30 +22,8 @@ Feature: Login Feature
 
   @regression
   Scenario: Attempt to login with a blank username and blank password
-    Given a blank username field
-    And a blank password field
-    When I login to the application
+    Given we are at the login page
+    And I login with a blank username field and a blank password field
     Then a validation message for the username field is displayed
     And a validation message for the password field is displayed
     
-  @regression
-  Scenario Outline: A valid username and password should redirect to the flights page
-    Given a valid username <username> and valid password <password> combination
-    When I login to the application
-    Then I am redirected to the flights page
-
-    Examples: 
-      | username  | password |
-      | mduncan   | cucumber |
-
-  @regression
-  Scenario Outline: An invalid username and valid password should display a validation message
-    Given an invalid username <username> and valid password <password> combination
-    When I login to the application
-    Then a validation message for an invalid username is displayed
-
-    Examples: 
-      | username  | password |
-      | mdunca1   | cucumber |
-      | angone1   | cucumber |
-      | travis1   | cucumber |

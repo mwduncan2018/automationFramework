@@ -4,6 +4,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import static org.junit.Assert.assertTrue;
+
 import com.duncan.safeflightautomationframework.CreateFlightPage;
 import com.duncan.safeflightautomationframework.CreateWatchListEntryPage;
 import com.duncan.safeflightautomationframework.Driver;
@@ -13,35 +15,24 @@ import com.duncan.safeflightautomationframework.WatchListPage;
 
 public class LoginFeature {
 
-	@Given("a blank username field")
-	public void a_blank_username_field() {
-		
-		throw new cucumber.api.PendingException();
+	@Given("we are at the login page")
+	public void we_are_at_the_login_page() {
+		LoginPage.goTo();
 	}
 
-	@Given("a blank password field")
-	public void a_blank_password_field() {
-		
-		throw new cucumber.api.PendingException();
-	}
-
-	@When("I login to the application")
-	public void i_login_to_the_application() {
-		
-		throw new cucumber.api.PendingException();
+	@When("I login with a blank username field and a blank password field")
+	public void I_login_with_a_blank_username_field_and_a_blank_password_field() {
+		LoginPage.loginAs("").withPassword("").login();
 	}
 
 	@Then("a validation message for the username field is displayed")
 	public void a_validation_message_for_the_username_field_is_displayed() {
-		
-		throw new cucumber.api.PendingException();
+		assertTrue(LoginPage.usernameValidationIsDisplayed());
 	}
 
 	@Then("a validation message for the password field is displayed")
 	public void a_validation_message_for_the_password_field_is_displayed() {
-		
-		throw new cucumber.api.PendingException();
+		assertTrue(LoginPage.passwordValidationIsDisplayed());
 	}
-
 
 }

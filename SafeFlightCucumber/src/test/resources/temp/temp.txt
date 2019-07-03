@@ -1,0 +1,23 @@
+  @regression
+  Scenario Outline: A valid username and password should redirect to the flights page
+    Given we are at the login page
+    And a valid username <username> and valid password <password> combination
+    When I login to the application
+    Then I am redirected to the flights page
+
+    Examples: 
+      | username  | password |
+      | mduncan   | cucumber |
+
+  @regression
+  Scenario Outline: An invalid username and valid password should display a validation message
+    Given we are at the login page
+    And an invalid username <username> and valid password <password> combination
+    When I login to the application
+    Then a validation message for an invalid username is displayed
+
+    Examples: 
+      | username  | password |
+      | mdunca1   | cucumber |
+      | angone1   | cucumber |
+      | travis1   | cucumber |

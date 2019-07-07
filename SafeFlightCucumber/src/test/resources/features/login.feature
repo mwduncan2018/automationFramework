@@ -45,6 +45,7 @@ Feature: Login Feature
       | tduncan   | airforce1 |
       | eangone   | achievedhappiness |
       | sharford  | michigan |
+      | gduncan   | mommom |
 
   @regression
   Scenario Outline: Invalid username, invalid password, data driven

@@ -9,8 +9,9 @@ public class LoginPage extends AbstractPage {
 
 	static final By usernameValidation = By.id("Username-error");
 	static final By passwordValidation = By.id("Password-error");
-
-	public static boolean isAt() {
+	static final By validationSummary = By.id("viewBagValidationSummary");
+	
+	public static boolean isAt() throws Exception {
 		return isAt("Login");
 	}
 
@@ -19,19 +20,23 @@ public class LoginPage extends AbstractPage {
 		Driver.instance.navigate().to(url);
 	}
 
-	public static LoginCommand loginAs(String username) {
+	public static LoginCommand loginAs(String username) throws Exception {
 		isAt();
 		return new LoginCommand(username);
 	}
 
-	public static boolean usernameValidationIsDisplayed() {
+	public static boolean usernameValidationIsDisplayed() throws Exception {
 		isAt();
-		return Driver.instance.findElement(usernameValidation).getText().equals("The Username field is required");
+		return Driver.instance.findElement(usernameValidation).getText().equals("The Username field is required.");
 	}
 
-	public static boolean passwordValidationIsDisplayed() {
+	public static boolean passwordValidationIsDisplayed() throws Exception {
 		isAt();
 		return Driver.instance.findElement(passwordValidation).getText().equals("The Password field is required.");
 	}
 
+	public static boolean validationUsernamePasswordCombinationInvalid() throws Exception {
+		isAt();
+		return Driver.instance.findElement(validationSummary).getText().equals("The username/password combination is invalid.");
+	}
 }

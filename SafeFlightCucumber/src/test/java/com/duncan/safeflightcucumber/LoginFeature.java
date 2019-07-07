@@ -1,5 +1,7 @@
 package com.duncan.safeflightcucumber;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -15,24 +17,55 @@ import com.duncan.safeflightautomationframework.WatchListPage;
 
 public class LoginFeature {
 
+	@Before
+	public void beforeScenario() {
+		Driver.initialize();
+	}
+	
+	@After
+	public void afterScenario() {
+		Driver.close();
+	}
+	
 	@Given("we are at the login page")
 	public void we_are_at_the_login_page() {
 		LoginPage.goTo();
 	}
 
 	@When("I login with a blank username field and a blank password field")
-	public void I_login_with_a_blank_username_field_and_a_blank_password_field() {
+	public void I_login_with_a_blank_username_field_and_a_blank_password_field() throws Exception {
 		LoginPage.loginAs("").withPassword("").login();
 	}
 
-	@Then("a validation message for the username field is displayed")
-	public void a_validation_message_for_the_username_field_is_displayed() {
+	@When("I login with a valid username field and a valid password field")
+	public void I_login_with_a_valid_username_field_and_a_valid_password_field() throws Exception {
+		LoginPage.loginAs("mduncan").withPassword("cucumber").login();
+	}
+	
+	@Then("a validation message stating that the username field is required is displayed")
+	public void a_validation_message_stating_that_the_username_field_is_required_is_displayed() throws Exception {
 		assertTrue(LoginPage.usernameValidationIsDisplayed());
 	}
 
-	@Then("a validation message for the password field is displayed")
-	public void a_validation_message_for_the_password_field_is_displayed() {
+	@Then("a validation message stating that the password field is required is displayed")
+	public void a_validation_message_stating_that_the_password_field_is_required_is_displayed() throws Exception {
 		assertTrue(LoginPage.passwordValidationIsDisplayed());
 	}
+
+	@Then("a validation message stating that the username and password combination is invalid is displayed")
+	public void a_validation_message_stating_that_the_username_and_password_combination_is_invalid_is_displayed() throws Exception {
+		assertTrue(LoginPage.validationUsernamePasswordCombinationInvalid());
+	}
+	
+	@Then("I am at the flights page")
+	public void I_am_at_the_flights_page() throws Exception {
+		assertTrue(FlightsPage.isAt());
+	}
+	
+	@Given("I login with username {string} and password {string}")
+	public void I_login_with_username_and_password(String username, String password) throws Exception {
+		LoginPage.loginAs(username).withPassword(password).login();
+	}
+	
 
 }

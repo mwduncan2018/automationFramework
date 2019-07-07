@@ -1,4 +1,5 @@
 package com.duncan.safeflightautomationframework;
+
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.LogManager;
@@ -10,15 +11,15 @@ import org.openqa.selenium.WebElement;
 public abstract class AbstractPage {
 
 	protected static Logger logger = LogManager.getLogManager().getLogger(Logger.GLOBAL_LOGGER_NAME);
-	
-	protected static boolean isAt(String pageName) {
-		if (Driver.instance.findElement(By.id("pageName")).getText().equals(pageName)) {
-			logger.log(Level.ALL, "Page successfully found: " + pageName);
+
+	protected static boolean isAt(String expectedPageName) throws UnexpectedPageException {
+		String actualPageName = Driver.instance.findElement(By.id("pageName")).getText();
+		if (actualPageName.equals(expectedPageName)) {
+			logger.log(Level.ALL, "Page successfully found: " + expectedPageName);
 			return true;
-		}
-		else {
-			logger.log(Level.ALL, "WARNING! Not on expected page: " + pageName);
-			return false;			
+		} else {
+			logger.log(Level.ALL, "WARNING! Not on expected page: " + expectedPageName);
+			throw new UnexpectedPageException(expectedPageName, actualPageName);
 		}
 	}
 }

@@ -6,21 +6,21 @@ import org.openqa.selenium.WebElement;
 
 public class WatchListPage extends AbstractPage {
 
-	public static boolean isAt() {
+	public static boolean isAt() throws Exception {
 		return isAt("Watch List");
 	}
 
-	public static void clickLinkCreateNew() {
+	public static void clickLinkCreateNew() throws Exception {
 		isAt();
 		Driver.instance.findElement(By.linkText("Create New")).click();
 	}
 
-	public static void clickLinkFlightList() {
+	public static void clickLinkFlightList() throws Exception {
 		isAt();
 		Driver.instance.findElement(By.linkText("Flight List")).click();
 	}
 
-	public static void deleteUserFromWatchList(String lastName, String firstName) {
+	public static void deleteUserFromWatchList(String lastName, String firstName) throws Exception {
 		isAt();
 		
 		List<WebElement> bountyList = Driver.instance.findElements(By.id("bounty"));

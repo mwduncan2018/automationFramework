@@ -33,7 +33,7 @@ class LoginTests {
 	}
 
 	@Test
-	void user_can_login() {
+	void user_can_login() throws Exception {
 
 		LoginPage.goTo();
 		LoginPage.loginAs("mduncan").withPassword("cucumber").login();

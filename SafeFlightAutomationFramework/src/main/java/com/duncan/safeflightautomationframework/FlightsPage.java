@@ -8,11 +8,11 @@ import org.openqa.selenium.WebElement;
 
 public class FlightsPage extends AbstractPage {
 
-	public static boolean isAt() {
-		return isAt("FlightsPage");
+	public static boolean isAt() throws Exception {
+		return isAt("Flight List");
 	}
 
-	public static boolean watchListIsCheckedFor(String lastName, String firstName) {
+	public static boolean watchListIsCheckedFor(String lastName, String firstName) throws Exception {
 		isAt();
 
 		List<WebElement> firstNameList = Driver.instance.findElements(By.id("firstName"));
@@ -34,17 +34,17 @@ public class FlightsPage extends AbstractPage {
 		return false;
 	}
 
-	public static void clickLinkCreateFlight() {
+	public static void clickLinkCreateFlight() throws Exception {
 		isAt();
 		Driver.instance.findElement(By.linkText("Create New")).click();		
 	}
 
-	public static void clickLinkWatchList() {
+	public static void clickLinkWatchList() throws Exception {
 		isAt();
 		Driver.instance.findElement(By.linkText("Watch List")).click();
 	}
 
-	public static void deleteFlight(String lastName, String firstName) {
+	public static void deleteFlight(String lastName, String firstName) throws Exception {
 		isAt();
 		
 		List<WebElement> firstNameList = Driver.instance.findElements(By.id("firstName"));

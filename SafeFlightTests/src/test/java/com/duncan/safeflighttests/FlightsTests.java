@@ -36,7 +36,7 @@ class FlightsTests {
 	}
 
 	@Test
-	void michael_duncan_is_checked_in_the_watch_list_column() {
+	void michael_duncan_is_checked_in_the_watch_list_column() throws Exception {
 		LoginPage.goTo();
 		LoginPage.loginAs("mduncan").withPassword("cucumber").login();
 
@@ -44,7 +44,7 @@ class FlightsTests {
 	}
 
 	@Test
-	void travis_duncan_is_not_checked_in_the_watch_list_column() {
+	void travis_duncan_is_not_checked_in_the_watch_list_column() throws Exception {
 		LoginPage.goTo();
 		LoginPage.loginAs("mduncan").withPassword("cucumber").login();
 
@@ -52,7 +52,7 @@ class FlightsTests {
 	}
 
 	@Test
-	void add_a_flight_and_add_the_user_to_the_watch_list_and_verify_the_user_is_checked_on_the_flights_page() {
+	void add_a_flight_and_add_the_user_to_the_watch_list_and_verify_the_user_is_checked_on_the_flights_page() throws Exception {
 		// Login
 		LoginPage.goTo();
 		LoginPage.loginAs("mduncan").withPassword("cucumber").login();

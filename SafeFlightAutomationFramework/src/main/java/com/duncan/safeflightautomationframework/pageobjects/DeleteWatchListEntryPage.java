@@ -1,4 +1,4 @@
-package com.duncan.safeflightautomationframework;
+package com.duncan.safeflightautomationframework.pageobjects;
 import org.openqa.selenium.By;
 
 public class DeleteWatchListEntryPage extends AbstractPage {

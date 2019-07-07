@@ -1,42 +1,18 @@
-#Author: your.email@your.domain.com
-#Keywords Summary :
-#Feature: List of scenarios.
-#Scenario: Business rule through list of steps with arguments.
-#Given: Some precondition step
-#When: Some key actions
-#Then: To observe outcomes or validation
-#And,But: To enumerate more Given,When,Then steps
-#Scenario Outline: List of steps for data-driven as an Examples and <placeholder>
-#Examples: Container for s table
-#Background: List of steps run before each of the scenarios
-#""" (Doc Strings)
-#| (Data Tables)
-#@ (Tags/Labels):To group Scenarios
-#<> (placeholder)
-#""
-## (Comments)
-#Sample Feature Definition Template
 @FlightFeature
-Feature: Title of your feature
-  I want to use this template for my feature file
+Feature: Flight Feature
+  This feature describes functionality of the Flight List page
 
   @smoke
-  Scenario: Title of your scenario
-    Given 
-    And some other precondition
-    When I complete action
-    And some other action
-    And yet another action
-    Then I validate the outcomes
-    And check more outcomes
+  Scenario: Create flight, no match with watch list
+    Given a flight with a name that is not on the watch list
+    When the flight is created
+    Then the flight is displayed on the Flight List page
+    And the flight is not checked in the watch list column
 
-  @regression
-  Scenario Outline: Title of your scenario outline
-    Given I want to write a step with <name>
-    When I check for the <value> in step
-    Then I verify the <status> in step
-
-    Examples: 
-      | name  | value | status  |
-      | name1 |     5 | success |
-      | name2 |     7 | Fail    |
+	@smoke
+	Scenario: Create flight, match with watch list
+		Given a flight with a name that is on the watch list
+		When the flight is created
+		Then the flight is displayed on the Flight List page
+		And the flight is checked in the watch list column
+		

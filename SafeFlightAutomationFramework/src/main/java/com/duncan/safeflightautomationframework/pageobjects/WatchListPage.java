@@ -1,4 +1,4 @@
-package com.duncan.safeflightautomationframework;
+package com.duncan.safeflightautomationframework.pageobjects;
 import java.util.List;
 
 import org.openqa.selenium.By;

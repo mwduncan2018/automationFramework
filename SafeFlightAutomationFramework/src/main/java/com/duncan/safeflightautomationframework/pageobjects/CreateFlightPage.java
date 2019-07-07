@@ -1,4 +1,4 @@
-package com.duncan.safeflightautomationframework;
+package com.duncan.safeflightautomationframework.pageobjects;
 
 public class CreateFlightPage extends AbstractPage {
 

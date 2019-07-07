@@ -7,12 +7,12 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import com.duncan.safeflightautomationframework.CreateFlightPage;
-import com.duncan.safeflightautomationframework.CreateWatchListEntryPage;
-import com.duncan.safeflightautomationframework.Driver;
-import com.duncan.safeflightautomationframework.FlightsPage;
-import com.duncan.safeflightautomationframework.LoginPage;
-import com.duncan.safeflightautomationframework.WatchListPage;
+import com.duncan.safeflightautomationframework.pageobjects.CreateFlightPage;
+import com.duncan.safeflightautomationframework.pageobjects.CreateWatchListEntryPage;
+import com.duncan.safeflightautomationframework.pageobjects.Driver;
+import com.duncan.safeflightautomationframework.pageobjects.FlightsPage;
+import com.duncan.safeflightautomationframework.pageobjects.LoginPage;
+import com.duncan.safeflightautomationframework.pageobjects.WatchListPage;
 
 class FlightsTests {
 

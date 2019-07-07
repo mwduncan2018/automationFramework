@@ -1,4 +1,4 @@
-package com.duncan.safeflightautomationframework;
+package com.duncan.safeflightautomationframework.pageobjects;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;

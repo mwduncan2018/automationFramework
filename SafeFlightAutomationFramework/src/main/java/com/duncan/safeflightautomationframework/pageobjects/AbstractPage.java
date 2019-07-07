@@ -1,4 +1,4 @@
-package com.duncan.safeflightautomationframework;
+package com.duncan.safeflightautomationframework.pageobjects;
 
 import java.util.List;
 import java.util.logging.Level;
@@ -10,6 +10,8 @@ import org.openqa.selenium.WebElement;
 
 public abstract class AbstractPage {
 
+	protected static String url = "http://localhost:60030/";
+	
 	protected static Logger logger = LogManager.getLogManager().getLogger(Logger.GLOBAL_LOGGER_NAME);
 
 	protected static boolean isAt(String expectedPageName) throws UnexpectedPageException {

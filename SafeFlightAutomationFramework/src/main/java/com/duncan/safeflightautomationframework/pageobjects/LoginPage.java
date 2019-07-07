@@ -1,4 +1,4 @@
-package com.duncan.safeflightautomationframework;
+package com.duncan.safeflightautomationframework.pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,8 +16,7 @@ public class LoginPage extends AbstractPage {
 	}
 
 	public static void goTo() {
-		String url = "http://localhost:60030/Login";
-		Driver.instance.navigate().to(url);
+		Driver.instance.navigate().to(url + "Login");
 	}
 
 	public static LoginCommand loginAs(String username) throws Exception {

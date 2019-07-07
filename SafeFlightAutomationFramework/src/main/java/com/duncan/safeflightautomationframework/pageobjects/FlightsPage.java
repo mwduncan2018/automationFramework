@@ -1,4 +1,4 @@
-package com.duncan.safeflightautomationframework;
+package com.duncan.safeflightautomationframework.pageobjects;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BooleanSupplier;
@@ -6,8 +6,20 @@ import java.util.function.BooleanSupplier;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import com.duncan.safeflightautomationframework.testdata.Flight;
+
 public class FlightsPage extends AbstractPage {
 
+	private static List<WebElement> refreshFirstNameColumn() {
+		return Driver.instance.findElements(By.id("firstName"));		
+	}
+	private static List<WebElement> refreshLastNameColumn() {
+		return Driver.instance.findElements(By.id("lastName"));
+	}
+	private static List<WebElement> refreshWatchListColumn() {
+		return Driver.instance.findElements(By.cssSelector("#watchList > input"));
+	}
+	
 	public static boolean isAt() throws Exception {
 		return isAt("Flight List");
 	}
@@ -15,15 +27,15 @@ public class FlightsPage extends AbstractPage {
 	public static boolean watchListIsCheckedFor(String lastName, String firstName) throws Exception {
 		isAt();
 
-		List<WebElement> firstNameList = Driver.instance.findElements(By.id("firstName"));
-		List<WebElement> lastNameList = Driver.instance.findElements(By.id("lastName"));
-		List<WebElement> watchList = Driver.instance.findElements(By.cssSelector("#watchList > input"));
+		List<WebElement> firstNameColumn = refreshFirstNameColumn();
+		List<WebElement> lastNameColumn = refreshLastNameColumn();
+		List<WebElement> watchListColumn = refreshWatchListColumn();
 		
 		int index = 0;
-		for (WebElement firstNameElement : firstNameList) {
+		for (WebElement firstNameElement : firstNameColumn) {
 			if (firstNameElement.getText().equals(firstName)) {
-				if (lastNameList.get(index).getText().equals(lastName)) {
-					if (watchList.get(index).isSelected()) {
+				if (lastNameColumn.get(index).getText().equals(lastName)) {
+					if (watchListColumn.get(index).isSelected()) {
 						return true;
 					}
 				}
@@ -62,6 +74,19 @@ public class FlightsPage extends AbstractPage {
 			index++;
 		}
 		
+	}
+
+	public static void goTo() {
+		Driver.instance.navigate().to(url + "Flights");
+	}
+
+	public static boolean flightIsDisplayed(Flight flight) throws Exception {
+		isAt();
+		
+		List<WebElement> firstNameList = Driver.instance.findElements(By.id("firstName"));
+		List<WebElement> lastNameList = Driver.instance.findElements(By.id("lastName"));
+		
+		return false;
 	}
 
 }

@@ -8,12 +8,12 @@ import io.cucumber.java.en.When;
 
 import static org.junit.Assert.assertTrue;
 
-import com.duncan.safeflightautomationframework.CreateFlightPage;
-import com.duncan.safeflightautomationframework.CreateWatchListEntryPage;
-import com.duncan.safeflightautomationframework.Driver;
-import com.duncan.safeflightautomationframework.FlightsPage;
-import com.duncan.safeflightautomationframework.LoginPage;
-import com.duncan.safeflightautomationframework.WatchListPage;
+import com.duncan.safeflightautomationframework.pageobjects.CreateFlightPage;
+import com.duncan.safeflightautomationframework.pageobjects.CreateWatchListEntryPage;
+import com.duncan.safeflightautomationframework.pageobjects.Driver;
+import com.duncan.safeflightautomationframework.pageobjects.FlightsPage;
+import com.duncan.safeflightautomationframework.pageobjects.LoginPage;
+import com.duncan.safeflightautomationframework.pageobjects.WatchListPage;
 
 public class LoginFeature {
 

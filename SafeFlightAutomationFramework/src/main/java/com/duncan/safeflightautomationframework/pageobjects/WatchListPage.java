@@ -1,4 +1,5 @@
 package com.duncan.safeflightautomationframework.pageobjects;
+
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -8,6 +9,10 @@ public class WatchListPage extends AbstractPage {
 
 	public static boolean isAt() throws Exception {
 		return isAt("Watch List");
+	}
+
+	public static void goTo() {
+		Driver.instance.navigate().to(url + "WatchList");
 	}
 
 	public static void clickLinkCreateNew() throws Exception {
@@ -22,7 +27,7 @@ public class WatchListPage extends AbstractPage {
 
 	public static void deleteUserFromWatchList(String lastName, String firstName) throws Exception {
 		isAt();
-		
+
 		List<WebElement> bountyList = Driver.instance.findElements(By.id("bounty"));
 		List<WebElement> firstNameList = Driver.instance.findElements(By.id("firstName"));
 		List<WebElement> lastNameList = Driver.instance.findElements(By.id("lastName"));

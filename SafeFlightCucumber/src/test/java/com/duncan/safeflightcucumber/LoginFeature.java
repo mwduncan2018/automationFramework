@@ -24,7 +24,6 @@ public class LoginFeature {
 	
 	@After
 	public void afterScenario() {
-		Driver.close();
 	}
 	
 	@Given("we are at the login page")

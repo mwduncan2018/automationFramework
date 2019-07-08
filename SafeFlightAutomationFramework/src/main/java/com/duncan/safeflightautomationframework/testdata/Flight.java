@@ -1,15 +1,19 @@
 package com.duncan.safeflightautomationframework.testdata;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 
 public class Flight {
 
+	private static final String DATE_FORMATTER = "";
+	
 	private String firstName;
 	private String lastName;
 	private String departureAirport;
 	private String arrivalAirport;
-	private LocalDateTime departureTime;
-	private LocalDateTime arrivalTime;
+	private String departureTime;
+	private String arrivalTime;
 
 	public Flight() {
 	}
@@ -46,19 +50,19 @@ public class Flight {
 		this.arrivalAirport = arrivalAirport;
 	}
 
-	public LocalDateTime getDepartureTime() {
+	public String getDepartureTime() {
 		return departureTime;
 	}
 
-	public void setDepartureTime(LocalDateTime departureTime) {
+	public void setDepartureTime(String departureTime) {
 		this.departureTime = departureTime;
 	}
-
-	public LocalDateTime getArrivalTime() {
+	
+	public String getArrivalTime() {
 		return arrivalTime;
 	}
 
-	public void setArrivalTime(LocalDateTime arrivalTime) {
+	public void setArrivalTime(String arrivalTime) {
 		this.arrivalTime = arrivalTime;
 	}
 

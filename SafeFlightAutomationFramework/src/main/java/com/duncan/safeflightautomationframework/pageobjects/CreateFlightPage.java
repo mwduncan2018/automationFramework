@@ -9,6 +9,10 @@ public class CreateFlightPage extends AbstractPage {
 		isAt();
 		return new CreateFlightCommand();
 	}
+	public static void goTo() {
+		Driver.instance.navigate().to(url + "Flights/Create");
+		
+	}
 
 	
 }
